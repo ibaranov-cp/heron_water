@@ -1,2 +1,14 @@
 <!-- Sample launch file demonstrating launching rosserial, and tagging samples -->
 
+<launch>
+
+  <arg name="port" default="/dev/ttyS5" />
+  <node pkg="rosserial_server" type="serial_node" name="rosserial_server_sample">
+    <param name="port" value="$(arg port)" />
+  </node>
+  <!-- node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" / -->
+
+  <node pkg="heron_water" type="sampler.py" name="sampler_driver">
+  </node>
+
+</launch>
