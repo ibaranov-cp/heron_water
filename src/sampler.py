@@ -22,17 +22,16 @@ def sample_driver():
     
     global flag
     while not rospy.is_shutdown():
+        if flag > -6: flag = flag -1
         if flag >= 0: 
             print flag
             controller = 9
-            flag = flag -1
             pub.publish(controller)
         if flag >= 350: 
             controller = -9
             pub.publish(controller)
-        if flag == -1: 
+        if (flag <= -1) and (flag >= -5): #Ensure stop message is received 
             pub.publish(0)
-            flag = -2
         #rospy.loginfo(controller)
         rate.sleep()
 
