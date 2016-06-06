@@ -28,5 +28,6 @@ copy launch file to /etc/ros/hydro/kingfisher-core.d
 add udev rule for ttyS4 and ttyS5 to 0666 on statrup
 
 KERNEL=="ttyS4", MODE="0666"
+
 KERNEL=="ttyS5", MODE="0666"
 
